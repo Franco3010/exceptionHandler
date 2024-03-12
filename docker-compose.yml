@@ -1,0 +1,43 @@
+version: '3.8'
+services:
+#  app:
+#    build:
+#      context: ./../
+#      dockerfile: ./app/Dockerfile
+#    ports:
+#      - "8080:8080"
+#    depends_on:
+#      - postgres
+#      - mongo
+#    networks:
+#      - app-network
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: 'test-db'
+      POSTGRES_USER: 'anhnd'
+      POSTGRES_PASSWORD: 'Init123456'
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+#  mongo:
+#    image: 'mongo:latest'
+#    restart: always
+#    ports:
+#      - '27017:27017'
+#    volumes:
+#      - mongo_data:/data/db
+#    environment:
+#      MONGO_INITDB_ROOT_USERNAME: root
+#      MONGO_INITDB_ROOT_PASSWORD: ucon-dev
+#    networks:
+#      - app-network
+networks:
+  app-network:
+    driver: bridge
+volumes:
+#  mongo_data:
+  postgres_data:

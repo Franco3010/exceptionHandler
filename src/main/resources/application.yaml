@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: com.example.api
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/test-db?schema=public&sslmode=prefer"
+    username: "anhnd"
+    password: "Init123456"
+  jpa:
+    properties:
+      hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+#        type:
+#          descriptor:
+#            sql:
+#              BasicBinder:TRACE
